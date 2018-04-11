@@ -5,9 +5,10 @@
 export default {
     data() {
        return {
-           text:'abc'
+           text:'abcs'
        }     
-    }
+    },
+
 }
 </script>
 <style>

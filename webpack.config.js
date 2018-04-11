@@ -1,5 +1,5 @@
 const path = require('path')
-const HTMLPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 
 const isDev = process.env.NODE_ENV === 'development'
@@ -62,7 +62,7 @@ const config = {
                 NODE_ENV: isDev ? '"development"' : '"production"'
             }
         }),
-        new HTMLPlugin()
+        new HtmlWebpackPlugin()
     ]
 }
 

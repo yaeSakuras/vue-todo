@@ -1,17 +1,56 @@
 <template>
     <section class="real-app">
-        <input type="text" class="add-input" autofocus placeholder="请输入" @keyup="addTodo">
+        <input type="text" class="add-input" v-model="text" autofocus placeholder="请输入" @keyup.enter="addTodo" />
+        <Item v-for="(todo,index) in filterTodos" :key="index" :todo="todo" @del="deleteTodo"/>
+        <Tabs :filter="filter" :todos="todos" @toggle="toggleFilter" @clearAll="clearAllCompleted"/>
     </section>
 </template>
 
 <script>
-    export default {
-        methods: {
-            addTodo() {
-
+import Item from './item.vue'
+import Tabs from './tabs.vue'
+let id = 0
+export default {
+    components: {
+        Item,
+        Tabs
+    },
+    data() {
+        return {
+            text:'',
+            todos: [],
+            filter:'all'
+        }
+    },
+    computed:{
+        filterTodos() {
+            if(this.filter === 'all'){
+                return this.todos;
             }
+            const completed = this.filter === 'completed'
+            return this.todos.filter(item => completed === item.completed);
+        }
+    },
+    methods: {
+        addTodo() {
+            this.todos.unshift({
+                id:id++,
+                content:this.text,
+                completed:false
+            });
+            this.text = '';
+        },
+        deleteTodo (id){
+            this.todos = this.todos.filter(item => item.id !== id);
+        },
+        toggleFilter(state){
+            this.filter = state;
+        },
+        clearAllCompleted(){
+            this.todos = this.todos.filter(item => !item.completed);
         }
     }
+}
 </script>
 
 <style lang="stylus" scoped>

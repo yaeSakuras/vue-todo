@@ -11,45 +11,45 @@ import Item from './item.vue'
 import Tabs from './tabs.vue'
 let id = 0
 export default {
-    components: {
-        Item,
-        Tabs
-    },
-    data() {
-        return {
-            text:'',
-            todos: [],
-            filter:'all'
-        }
-    },
-    computed:{
-        filterTodos() {
-            if(this.filter === 'all'){
-                return this.todos;
-            }
-            const completed = this.filter === 'completed'
-            return this.todos.filter(item => completed === item.completed);
-        }
-    },
-    methods: {
-        addTodo() {
-            this.todos.unshift({
-                id:id++,
-                content:this.text,
-                completed:false
-            });
-            this.text = '';
-        },
-        deleteTodo (id){
-            this.todos = this.todos.filter(item => item.id !== id);
-        },
-        toggleFilter(state){
-            this.filter = state;
-        },
-        clearAllCompleted(){
-            this.todos = this.todos.filter(item => !item.completed);
-        }
+  components: {
+    Item,
+    Tabs
+  },
+  data () {
+    return {
+      text: '',
+      todos: [],
+      filter: 'all'
     }
+  },
+  computed: {
+    filterTodos () {
+      if (this.filter === 'all') {
+        return this.todos
+      }
+      const completed = this.filter === 'completed'
+      return this.todos.filter(item => completed === item.completed)
+    }
+  },
+  methods: {
+    addTodo () {
+      this.todos.unshift({
+        id: id++,
+        content: this.text,
+        completed: false
+      })
+      this.text = ''
+    },
+    deleteTodo (id) {
+      this.todos = this.todos.filter(item => item.id !== id)
+    },
+    toggleFilter (state) {
+      this.filter = state
+    },
+    clearAllCompleted () {
+      this.todos = this.todos.filter(item => !item.completed)
+    }
+  }
 }
 </script>
 

@@ -1,8 +1,8 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')//webpack抽取文本插件例如css
 const webpack = require('webpack')
-const merge = require('webpack-merge')
+const merge = require('webpack-merge')//webpack配置合并插件
 const baseConfig = require('./webpack.config.base')
 
 const isDev = process.env.NODE_ENV === 'development'

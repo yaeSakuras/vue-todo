@@ -6,13 +6,13 @@ export default [
     redirect: '/app'
   },
   {
-    path: '/app',
     name: 'app',
+    path: '/app',
     component: Todo
   },
   {
-    path: '/login',
     name: 'login',
+    path: '/login',
     component: Login
   }
 ]

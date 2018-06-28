@@ -2,6 +2,8 @@
     <div id="app">
         <div id="cover"></div>
         <Header></Header>
+        <router-link :to="{ name:'app' }">app</router-link>
+        <router-link to="/login">login</router-link>
         <router-view />
         <Footer></Footer>
     </div>

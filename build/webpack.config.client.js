@@ -22,7 +22,9 @@ const devServer = {
         errors:true
     },
     hot: true,
-    historyApiFallback:true
+    historyApiFallback:{
+      index:'/public/index.html' //webpack.config.base output publicPath
+    }
     // open: true
 }
 

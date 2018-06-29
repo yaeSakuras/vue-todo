@@ -11,9 +11,32 @@ import Item from './item.vue'
 import Tabs from './tabs.vue'
 let id = 0
 export default {
+  beforeRouteEnter (to, from, next) {
+    console.log('todo before ' + this)
+    next((vm) => {
+      console.log('after enter is ' + vm.id)
+    })
+  },
+  beforeRouteUpdate (to, from, next) {
+    // 路由更新触发钩子
+    console.log('todo update ')
+    next()
+  },
+  beforeRouteLeave (to, from, next) {
+    console.log('todo leave ')
+    next()
+    // if (window.confirm('are you sure?')) {
+    //   next()
+    // }
+  },
   components: {
     Item,
     Tabs
+  },
+  props: {
+    id: {
+      type: String
+    }
   },
   data () {
     return {

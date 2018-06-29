@@ -16,8 +16,8 @@ export default () => {
       } else {
         return { x: 0, y: 0 }
       }
-    },
-    parseQuery (query) {},
-    stringifyQuery (obj) {}
+    }
+    // parseQuery (query) {},
+    // stringifyQuery (obj) {}
   })
 }
